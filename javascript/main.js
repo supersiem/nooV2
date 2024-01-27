@@ -1,7 +1,7 @@
 window.addEventListener('DOMContentLoaded', function() {
     console.log("DOM loaded");
-    duplicateAndModify("https://www.example.com", "ytyfyfyftyf","fa-solid fa-thumbs-up fa-3x");
-    duplicateAndModify("https://www.example.com", "hallo","fa-solid fa-thumbs-up fa-3x");
+    duplicateAndModify("https://www.example.com", "ytyfyfyftyf","fa-cloud");
+    duplicateAndModify("https://www.example.com", "hallo","fa-thumbs-up");
     remove_the_placeholder();
 });
 
@@ -19,7 +19,9 @@ function duplicateAndModify(link, text, icon) {
     console.log("a veranderd");
     clonedTile.querySelector('p').innerText = text;
     console.log("p veranderd");
-    clonedTile.querySelector('i').class = icon 
+    const Ielement = clonedTile.querySelector('i');
+    Ielement.classList.remove("fa-thumbs-down");
+    Ielement.classList.add(icon);
     console.log("i veranderd");
 
     // Append the cloned tile to the container
