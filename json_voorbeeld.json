@@ -1,0 +1,20 @@
+{
+    "gebruiker": {
+        "naam": "NAAM"
+    },
+    "naam": [
+      "home",
+      "test",
+      "noo"
+    ],
+    "link": [
+      "google.com",
+      "test.com",
+      "pasta.nl"
+    ],
+    "icon": [
+      "fa-thumbs-up",
+      "fa-thumbs-up",
+      "fa-thumbs-up"
+    ]
+  }
