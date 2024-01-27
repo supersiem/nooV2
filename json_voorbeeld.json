@@ -3,18 +3,12 @@
         "naam": "NAAM"
     },
     "naam": [
-      "home",
-      "test",
-      "noo"
+      "google"
     ],
     "link": [
-      "google.com",
-      "test.com",
-      "pasta.nl"
+      "https://google.com"
     ],
     "icon": [
-      "fa-thumbs-up",
-      "fa-thumbs-up",
       "fa-thumbs-up"
     ]
   }

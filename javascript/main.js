@@ -31,3 +31,12 @@ function remove_the_placeholder() {
     var originalTile = document.getElementById('tile');
     originalTile.remove();
 }
+function new_tile(text,icon,url) {
+    //note the icon is using font awsom SIEM edision
+    data = JSON.parse(localStorage.getItem("main"))
+    data.naam
+
+}
+function setup() {
+    // set the base json
+    if(localStorage.length === 0) {localStorage.setItem("main",'{"gebruiker":{"naam":"NAAM"},"naam":["google"],"link":["https://google.com"],"icon":["fa-thumbs-up"]}' );}}
