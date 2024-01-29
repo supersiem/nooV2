@@ -42,11 +42,12 @@ function remove_the_placeholder() {
     var originalTile = document.getElementById('tile');
     originalTile.remove();
 }
-function new_tile(text,icon,url) {
-    //note the icon is using font awsom SIEM edision
+function new_tile(text,url,icondata, icontype) {
+    //note the icon is using font awsom 
     data = get_JSON();
     data.naam.push(text);
-    data.icon.push(icon);
+    data.icon.icondata.push(icondata);
+    data.icon.icontype.push(icontype);
     data.link.push(url);
     localStorage.setItem("main",JSON.stringify(data));
 
