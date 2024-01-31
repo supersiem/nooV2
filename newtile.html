@@ -3,7 +3,6 @@
 <head>
   <link rel="stylesheet" href="css/main.css">
   <link rel="stylesheet" href="css/tilles.css">
-  <script src="javascript/main.js"> </script>
   <script src="javascript/newtile.js"> </script>
 <script src="https://kit.fontawesome.com/4f718ec3d3.js" crossorigin="anonymous"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -38,10 +37,19 @@
         <input type="text" name="naam" id="remove_tile_name"><br>
         <button type="button" onclick="A_remove()">Submit</button>
     </form>
+    <div id="wigit_cofig">
+    </div>
     <h2>verwijderen tile nummer</h2>
     <form>
         <label for="remove_tile_num">nummer</label>
         <input type="text" name="naam" id="remove_tile_num"><br>
         <button type="button" onclick="B_remove()">Submit</button>
     </form>
+    <h2>noo data</h2>
+    <p>gebruik inspect als mogelijk</p>
+    <form><button type="button" onclick="verwijder()">clear data</button><button type="button" onclick="restor()">restor data</button>
+        <br><label>data</label>
+        <input type="text"  id="data_in"><br></form>
+    <p id="data_dump">data</p>
+
 </div>
