@@ -1,3 +1,7 @@
+window.addEventListener('DOMContentLoaded', function() {
+    console.log("DOM loaded");
+    load()
+});
 function submit_form() {
     // eerst de waarden van de inputs krijgen
     // naam
@@ -37,13 +41,44 @@ function B_remove() {
     localStorage.setItem("main",JSON.stringify(data))
     window.location.href = "main.html"
 }
+function verwijder(){
+    backup = localStorage.getItem("main")
+    localStorage.removeItem("main")
+    p = document.getElementById("data_dump")
+    p.innerText = backup
+}
+function load(){
+    backup = localStorage.getItem("main")
+    p = document.getElementById("data_dump")
+    p.innerText = backup
+}
+function restor(){
+    var line = document.getElementById("data_in").value
+    localStorage.setItem("main",line)
+    p = document.getElementById("data_dump")
+    p.innerText = line
+}
 // from main.js
 function new_tile(text,url,icondata, icontype) {
     //note the icon is using font awsom 
+    
     data = get_JSON();
     data.naam.push(text);
     data.icon.icondata.push(icondata);
     data.icon.icontype.push(icontype);
+    data.type.push("0");
+    data.link.push(url);
+    localStorage.setItem("main",JSON.stringify(data));
+
+}
+function new_wigit(text,url,icondata, icontype) {
+    //note the icon is using font awsom 
+    
+    data = get_JSON();
+    data.naam.push(text);
+    data.icon.icondata.push(icondata);
+    data.icon.icontype.push(icontype);
+    data.type.push("1");
     data.link.push(url);
     localStorage.setItem("main",JSON.stringify(data));
 
