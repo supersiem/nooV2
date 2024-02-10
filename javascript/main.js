@@ -1,6 +1,5 @@
 window.addEventListener('DOMContentLoaded', function() {
     console.log("DOM loaded");
-
     setup()
     make_tiles()
 });

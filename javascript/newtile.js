@@ -8,6 +8,10 @@ function submit_form() {
     var naam = document.getElementById("tile_name").value;
     // link
     var link = document.getElementById("tile_link").value;
+    if (!link.startsWith("https://")) {
+        link = "https://" + link;
+    }
+
     // icon
     var icon_data = "fa-"+document.getElementById("fa_icon_selector").value;
     var icon_type = "fa-"+document.getElementById("fa_icon_type_selector").value;
@@ -25,6 +29,7 @@ function A_remove() {
         data.link.splice(line,1)
         data.icon.icondata.splice(line,1)
         data.icon.icontype.splice(line,1)
+        data.type.splice(line,1)
     }
     localStorage.setItem("main",JSON.stringify(data))
     window.location.href = "main.html"
@@ -38,6 +43,7 @@ function B_remove() {
     data.link.splice(line,1)
     data.icon.icondata.splice(line,1)
     data.icon.icontype.splice(line,1)
+    data.type.splice(line,1)
     localStorage.setItem("main",JSON.stringify(data))
     window.location.href = "main.html"
 }
