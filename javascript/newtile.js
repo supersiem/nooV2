@@ -7,7 +7,7 @@ function submit_form() {
     // naam
     var naam = document.getElementById("tile_name").value;
     // link
-    var link = "https://"+ document.getElementById("tile_link").value;
+    var link = document.getElementById("tile_link").value;
     // icon
     var icon_data = "fa-"+document.getElementById("fa_icon_selector").value;
     var icon_type = "fa-"+document.getElementById("fa_icon_type_selector").value;
@@ -71,19 +71,28 @@ function new_tile(text,url,icondata, icontype) {
     localStorage.setItem("main",JSON.stringify(data));
 
 }
-function new_wigit(text,url,icondata, icontype) {
+function get_JSON(){
+    data = JSON.parse(localStorage.getItem("main"));
+    return data;
+}
+
+function submit_wigit() {
+    // eerst de waarden van de inputs krijgen
+    // naam
+    var link = document.getElementById("tile_link").value;
+    // icon
+    new_tile(link);
+    window.location.href = "main.html"
+}
+function new_wigit(url) {
     //note the icon is using font awsom 
     
     data = get_JSON();
-    data.naam.push(text);
-    data.icon.icondata.push(icondata);
-    data.icon.icontype.push(icontype);
+    data.naam.push("1");
+    data.icon.icondata.push("1");
+    data.icon.icontype.push("1");
     data.type.push("1");
     data.link.push(url);
     localStorage.setItem("main",JSON.stringify(data));
 
-}
-function get_JSON(){
-    data = JSON.parse(localStorage.getItem("main"));
-    return data;
 }
