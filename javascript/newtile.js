@@ -16,7 +16,7 @@ function submit_form() {
     var icon_data = "fa-"+document.getElementById("fa_icon_selector").value;
     var icon_type = "fa-"+document.getElementById("fa_icon_type_selector").value;
     new_tile(naam,link,icon_data,icon_type);
-    window.location.href = "main.html"
+    window.location.href = "http://127.0.0.1:5500/main.html"
 }
 function A_remove() {
     // eerst de waarden van de inputs krijgen
