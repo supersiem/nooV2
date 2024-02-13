@@ -1,0 +1,119 @@
+<!doctype html>
+<html>
+
+<head>
+    <link rel="stylesheet" href="http://127.0.0.1:5500/css/main.css" id="main_css" />
+    <link rel="stylesheet" href="http://127.0.0.1:5500/css/tilles.css" id="tile_css" />
+    <script src="https://kit.fontawesome.com/4f718ec3d3.js" crossorigin="anonymous"></script>
+    <script>
+        // maak base
+        const baseElement = document.createElement("base");
+        baseElement.id = "baseElement";
+        baseElement.href = window.location.origin;
+        document.head.appendChild(baseElement);
+
+        // foto's
+        const images = document.getElementsByTagName("img");
+        for (let i = 0; i < images.length; i++) {
+            images[i].src =
+                window.location.origin + images[i].getAttribute("data-src");
+        }
+    </script>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+</head>
+<script>
+    window.addEventListener("DOMContentLoaded", function () {
+        console.log("DOM loaded");
+        make_tiles();
+    });
+    function make_tiles() {
+        data = get_JSON();
+        console.log("loading tiles");
+        for (let i = 0; i < data.naam.length; i++) {
+            console.log("loading " + data.naam[i]);
+            duplicateAndModify(
+                data.naam[i],
+                data.icon.icondata[i],
+                data.type[i],
+                i,
+            );
+        }
+        remove_the_placeholder();
+    }
+    function duplicateAndModify(
+        text,
+        icondata,
+        type,
+        number_in_list,
+    ) {
+        console.log(type);
+        if (type == "0") {
+            // Get the original tile
+            var originalTile = document.getElementById("tile");
+
+            // Clone the original tile, including its children
+            var clonedTile = originalTile.cloneNode(true);
+            clonedTile.id = number_in_list;
+            // Change the URL and text of the cloned tile
+            clonedTile.querySelector("p").innerText = text;
+            const classNames = icondata;
+
+            classNames.split(" ").forEach((className) => {
+                Ielement.classList.add(className);
+            });
+
+            const Aelemet = clonedTile.querySelector("a");
+            Aelemet.href = "javascript:remove(" + number_in_list + ");";
+
+            // Append the cloned tile to the container
+            document.getElementById("container").appendChild(clonedTile);
+        }
+    }
+    function remove_the_placeholder() {
+        var originalTile = document.getElementById("tile");
+        originalTile.remove();
+    }
+    function get_JSON() {
+        data = JSON.parse(localStorage.getItem("main"));
+        return data;
+    }
+    function remove(num) {
+        var json = get_JSON();
+        json.naam.splice(num, 1);
+        json.link.splice(num, 1);
+        json.icon.icondata.splice(num, 1);
+        json.icon.icontype.splice(num, 1);
+        json.type.splice(num, 1);
+        localStorage.setItem("main", JSON.stringify(json));
+    }
+</script>
+
+<body>
+    <div class="topbar_holder">
+        <img src="foto's/noo.png" alt="" class="topimg" />
+
+        <div class="topbar">
+            <a href="main.html"><i class="fa-solid fa-house fa-3x"></i></a>
+            <div class="padding"></div>
+            <a href="instelingen/new_tile.html"><i class="fa-solid fa-plus fa-3x"></i></a>
+            <div class="padding"></div>
+            <a href="instelingen/remove_tile.html"><i class="fa-solid fa-minus fa-3x"></i></a>
+            <div class="padding"></div>
+            </a>
+        </div>
+    </div>
+
+    <div class="main">
+        <div id="container">
+            <div id="tile">
+                <a href="javascrip:error()">-</a>
+                <i class="fa-solid fa-thumbs-down fa-3x"></i>
+                <p>error</p>
+            </div>
+        </div>
+
+        <div class=""></div>
+    </div>
+</body>
+
+</html>
