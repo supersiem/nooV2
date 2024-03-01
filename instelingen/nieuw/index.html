@@ -281,7 +281,7 @@
             data.type.push("0");
             data.link.push(link);
             localStorage.setItem("main", JSON.stringify(data));
-            window.location.href = "http://127.0.0.1:5500/main.html?";
+            window.location.href = window.location.origin+"main.html?";
             console.log("klaar");
             return false;
         }
@@ -290,8 +290,8 @@
             return data;
         }
     </script>
-    <link rel="stylesheet" href="instelingen/css/icon_selector.css" />
-    <link rel="stylesheet" href="instelingen/css/topbar.css" />
+    <link rel="stylesheet" href="instelingen/nieuw/css/icon_selector.css" />
+    <link rel="stylesheet" href="instelingen/nieuw/css/topbar.css" />
     <script src="https://kit.fontawesome.com/4f718ec3d3.js" crossorigin="anonymous"></script>
 </head>
 
@@ -300,11 +300,11 @@
         <img src="foto's/noo.png" alt="" class="topimg" />
 
         <div class="topbar">
-            <a href="main.html"><i class="fa-solid fa-house fa-3x"></i></a>
+            <a href="index.html"><i class="fa-solid fa-house fa-3x"></i></a>
             <div class="padding"></div>
-            <a href="instelingen/new_tile.html"><i class="fa-solid fa-plus fa-3x"></i></a>
+            <a href="instelingen/nieuw/index.html"><i class="fa-solid fa-plus fa-3x"></i></a>
             <div class="padding"></div>
-            <a href="instelingen/remove_tile.html"><i class="fa-solid fa-minus fa-3x"></i></a>
+            <a href="instelingen/verwijder/index.html"><i class="fa-solid fa-minus fa-3x"></i></a>
             <div class="padding"></div>
             </a>
         </div>

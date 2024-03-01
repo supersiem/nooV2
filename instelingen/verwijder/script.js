@@ -1,27 +1,4 @@
-<!doctype html>
-<html>
 
-<head>
-    <link rel="stylesheet" href="css/main.css" id="main_css" />
-    <link rel="stylesheet" href="css/tilles.css" id="tile_css" />
-    <script src="https://kit.fontawesome.com/4f718ec3d3.js" crossorigin="anonymous"></script>
-    <script>
-        // maak base
-        const baseElement = document.createElement("base");
-        baseElement.id = "baseElement";
-        baseElement.href = window.location.origin;
-        document.head.appendChild(baseElement);
-
-        // foto's
-        const images = document.getElementsByTagName("img");
-        for (let i = 0; i < images.length; i++) {
-            images[i].src =
-                window.location.origin + images[i].getAttribute("data-src");
-        }
-    </script>
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-</head>
-<script>
     window.addEventListener("DOMContentLoaded", function () {
         console.log("DOM loaded");
         make_tiles();
@@ -57,13 +34,19 @@
             // Change the URL and text of the cloned tile
             clonedTile.querySelector("p").innerText = text;
             const classNames = icondata;
+            const Ielement = clonedTile.querySelector("i");
+            Ielement.id = "skibedi_toilet";
 
+            Ielement.classList.remove("fa-thumbs-down");
+            Ielement.classList.remove("fa-solid");
+            console.log(Ielement)
             classNames.split(" ").forEach((className) => {
                 Ielement.classList.add(className);
             });
 
-            const Aelemet = clonedTile.querySelector("a");
+            const Aelemet = clonedTile;
             Aelemet.href = "javascript:remove(" + number_in_list + ");";
+
 
             // Append the cloned tile to the container
             document.getElementById("container").appendChild(clonedTile);
@@ -85,35 +68,5 @@
         json.icon.icontype.splice(num, 1);
         json.type.splice(num, 1);
         localStorage.setItem("main", JSON.stringify(json));
+        location.reload();
     }
-</script>
-
-<body>
-    <div class="topbar_holder">
-        <img src="foto's/noo.png" alt="" class="topimg" />
-
-        <div class="topbar">
-            <a href="main.html"><i class="fa-solid fa-house fa-3x"></i></a>
-            <div class="padding"></div>
-            <a href="instelingen/new_tile.html"><i class="fa-solid fa-plus fa-3x"></i></a>
-            <div class="padding"></div>
-            <a href="instelingen/remove_tile.html"><i class="fa-solid fa-minus fa-3x"></i></a>
-            <div class="padding"></div>
-            </a>
-        </div>
-    </div>
-
-    <div class="main">
-        <div id="container">
-            <div id="tile">
-                <a href="javascrip:error()">-</a>
-                <i class="fa-solid fa-thumbs-down fa-3x"></i>
-                <p>error</p>
-            </div>
-        </div>
-
-        <div class=""></div>
-    </div>
-</body>
-
-</html>
